@@ -88,7 +88,7 @@ export default function Pricing() {
             Simple, Transparent Pricing
           </h1>
           <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-            Affordable website packages for Chennai businesses. No hidden charges, just quality work at honest prices.
+            Affordable website packages for businesses. No hidden charges, just quality work at honest prices.
           </p>
         </div>
 

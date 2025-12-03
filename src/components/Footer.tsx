@@ -8,7 +8,7 @@ export default function Footer() {
           <div>
             <h3 className="text-2xl font-bold text-blue-400 mb-4">DevChennai</h3>
             <p className="text-gray-400 mb-4">
-              Professional web development services for Chennai businesses. Affordable, modern, and mobile-friendly websites.
+              Professional web development services for businesses. Affordable, modern, and mobile-friendly websites.
             </p>
             <div className="flex space-x-4">
               <a href="#" className="text-gray-400 hover:text-blue-400 transition-colors">
@@ -67,7 +67,7 @@ export default function Footer() {
             <ul className="space-y-3">
               <li className="flex items-center text-gray-400">
                 <MapPin size={18} className="mr-2 flex-shrink-0" />
-                <span>Chennai, Tamil Nadu, India</span>
+                <span>India</span>
               </li>
               <li className="flex items-center text-gray-400">
                 <Phone size={18} className="mr-2 flex-shrink-0" />
@@ -75,14 +75,14 @@ export default function Footer() {
               </li>
               <li className="flex items-center text-gray-400">
                 <Mail size={18} className="mr-2 flex-shrink-0" />
-                <span>hello@devchennai.com</span>
+                <span>hello@dev.com</span>
               </li>
             </ul>
           </div>
         </div>
 
         <div className="border-t border-gray-800 mt-8 pt-8 text-center text-gray-400">
-          <p>&copy; 2024 DevChennai. All rights reserved. Website Developer in Chennai</p>
+          <p>&copy; 2024 Dev. All rights reserved.</p>
         </div>
       </div>
     </footer>
