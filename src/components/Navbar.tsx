@@ -32,7 +32,7 @@ export default function Navbar() {
   return (
     <nav
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-        isScrolled ? 'bg-graphite shadow-md' : 'bg-white/95 backdrop-blur-sm'
+        isScrolled ? 'bg-graphite shadow-md' : 'bg-graphite backdrop-blur-sm'
       }`}
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -66,7 +66,7 @@ export default function Navbar() {
           <div className="md:hidden">
             <button
               onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-              className="text-gray-700 hover:text-blue-600 transition-colors"
+              className="text-softWhite hover:text-gold transition-colors"
             >
               {isMobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
             </button>
@@ -75,13 +75,13 @@ export default function Navbar() {
       </div>
 
       {isMobileMenuOpen && (
-        <div className="md:hidden bg-white border-t border-gray-200">
+        <div className="md:hidden bg-graphite">
           <div className="px-4 pt-2 pb-4 space-y-2">
             {navLinks.map((link) => (
               <button
                 key={link.name}
                 onClick={() => scrollToSection(link.href)}
-                className="block w-full text-left px-4 py-2 text-gray-700 hover:bg-blue-50 hover:text-blue-600 rounded-lg transition-colors duration-200"
+                className="block w-full text-left px-4 py-2 text-softWhite hover:text-gold rounded-lg transition-colors duration-200"
               >
                 {link.name}
               </button>
@@ -90,7 +90,7 @@ export default function Navbar() {
               href="https://wa.me/919876543210"
               target="_blank"
               rel="noopener noreferrer"
-              className="block w-full text-center bg-green-500 text-white px-4 py-2 rounded-lg hover:bg-green-600 transition-colors duration-200 mt-4"
+              className="block w-full text-left bg-green-500 text-white px-4 py-2 rounded-lg hover:bg-green-600 transition-colors duration-200 mt-4"
             >
               WhatsApp
             </a>

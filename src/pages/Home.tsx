@@ -1,5 +1,6 @@
 import { ArrowRight, Star, CheckCircle, Users, Award, TrendingUp } from 'lucide-react';
 import { useEffect, useRef, useState } from 'react';
+import FoxLottie from "../components/FoxLottie";
 
 export default function Home() {
   const [isVisible, setIsVisible] = useState(false);
@@ -158,11 +159,7 @@ export default function Home() {
             </div>
             <div className="relative">
               <div className="relative z-10">
-                <img
-                  src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=800&h=600&fit=crop"
-                  alt="Web Development"
-                  className="rounded-2xl shadow-2xl"
-                />
+                 <FoxLottie />
               </div>
               <div className="absolute -top-4 -right-4 w-72 h-72 bg-gold rounded-full opacity-20 blur-3xl" />
               <div className="absolute -bottom-4 -left-4 w-72 h-72 bg-gold rounded-full opacity-20 blur-3xl" />
