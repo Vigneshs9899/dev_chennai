@@ -105,21 +105,21 @@ export default function Home() {
 
   return (
     <div id="home" className="pt-16">
-      <section className="relative bg-gradient-to-br from-blue-50 via-white to-blue-50 min-h-screen flex items-center">
+      <section className="relative bg-graphite text-softWhite min-h-screen flex items-center">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
             <div className="text-center lg:text-left">
               <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-gray-900 mb-6 leading-tight">
                 Web Developer for{' '}
-                <span className="text-blue-600">Businesses</span>
+                <span className="text-gold">Businesses</span>
               </h1>
-              <p className="text-xl text-gray-600 mb-8 leading-relaxed">
+              <p className="text-xl text-softWhite mb-8 leading-relaxed">
                 Affordable websites for doctors, coaching centers & local businesses. Get online and grow your business today!
               </p>
               <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
                 <button
                   onClick={() => scrollToSection('#contact')}
-                  className="bg-blue-600 text-white px-8 py-4 rounded-full hover:bg-blue-700 transition-all duration-300 font-semibold text-lg shadow-lg hover:shadow-xl transform hover:-translate-y-1 flex items-center justify-center"
+                  className="bg-gold text-graphite px-8 py-4 rounded-full hover:opacity-90 transition-all duration-300 font-semibold text-lg shadow-lg hover:shadow-xl transform hover:-translate-y-1 flex items-center justify-center"
                 >
                   Get Free Website Review
                   <ArrowRight className="ml-2" size={20} />
