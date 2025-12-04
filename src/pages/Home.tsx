@@ -109,11 +109,11 @@ export default function Home() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
             <div className="text-center lg:text-left">
-              <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-gray-900 mb-6 leading-tight">
+              <h1 className="text-4xl sm:text-5xl lg:text-6xl font-heading font-bold text-gray-900 mb-6 leading-tight">
                 Web Developer for{' '}
                 <span className="text-gold">Businesses</span>
               </h1>
-              <p className="text-xl text-softWhite mb-8 leading-relaxed">
+              <p className="text-xl font-body text-softWhite mb-8 leading-relaxed">
                 Affordable websites for doctors, coaching centers & local businesses. Get online and grow your business today!
               </p>
               <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">

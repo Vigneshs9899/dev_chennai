@@ -10,6 +10,10 @@ export default {
         foxDark: "#141414",     // optional darker background
         foxMuted: "#B8B8B8",    // optional muted text
       },
+      fontFamily: {
+        heading: ["Playfair Display", "serif"],
+        body: ["DM Sans", "sans-serif"],
+      },
     },
   },
   plugins: [],
