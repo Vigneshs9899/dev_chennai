@@ -140,7 +140,7 @@ export default function Home() {
                     {[1, 2, 3, 4].map((i) => (
                       <div
                         key={i}
-                        className="w-10 h-10 rounded-full bg-gradient-to-br from-blue-400 to-blue-600 border-2 border-white"
+                        className="w-10 h-10 rounded-full bg-gold border-2 border-softWhite"
                       />
                     ))}
                   </div>
