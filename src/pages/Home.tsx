@@ -109,7 +109,7 @@ export default function Home() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
             <div className="text-center lg:text-left">
-              <h1 className="text-4xl sm:text-5xl lg:text-6xl font-heading font-bold text-gray-900 mb-6 leading-tight">
+              <h1 className="text-4xl sm:text-5xl lg:text-6xl font-heading font-bold text-gold mb-6 leading-tight">
                 Web Developer for{' '}
                 <span className="text-gold">Businesses</span>
               </h1>
@@ -144,7 +144,7 @@ export default function Home() {
                       />
                     ))}
                   </div>
-                  <span className="ml-3 text-sm text-gray-600">50+ Happy Clients</span>
+                  <span className="ml-3 text-sm text-softWhite">50+ Happy Clients</span>
                 </div>
                 <div className="flex items-center">
                   <div className="flex text-yellow-400">
@@ -152,7 +152,7 @@ export default function Home() {
                       <Star key={i} size={20} fill="currentColor" />
                     ))}
                   </div>
-                  <span className="ml-2 text-sm text-gray-600">5.0 Rating</span>
+                  <span className="ml-2 text-sm text-softWhite">5.0 Rating</span>
                 </div>
               </div>
             </div>
@@ -164,8 +164,8 @@ export default function Home() {
                   className="rounded-2xl shadow-2xl"
                 />
               </div>
-              <div className="absolute -top-4 -right-4 w-72 h-72 bg-blue-200 rounded-full opacity-20 blur-3xl" />
-              <div className="absolute -bottom-4 -left-4 w-72 h-72 bg-blue-300 rounded-full opacity-20 blur-3xl" />
+              <div className="absolute -top-4 -right-4 w-72 h-72 bg-gold rounded-full opacity-20 blur-3xl" />
+              <div className="absolute -bottom-4 -left-4 w-72 h-72 bg-gold rounded-full opacity-20 blur-3xl" />
             </div>
           </div>
         </div>
