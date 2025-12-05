@@ -110,7 +110,7 @@ export default function Home() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
             <div className="text-center lg:text-left">
-              <h1 className="text-4xl sm:text-5xl lg:text-6xl font-heading font-bold text-gold mb-6 leading-tight">
+              <h1 className="text-4xl sm:text-5xl lg:text-6xl font-body font-bold text-gold mb-6 leading-tight">
                 Web Developer for{' '}
                 <span className="text-gold">Businesses</span>
               </h1>
@@ -120,7 +120,7 @@ export default function Home() {
               <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
                 <button
                   onClick={() => scrollToSection('#contact')}
-                  className="bg-gold text-graphite px-8 py-4 rounded-full hover:opacity-90 transition-all duration-300 font-semibold text-lg shadow-lg hover:shadow-xl transform hover:-translate-y-1 flex items-center justify-center"
+                  className="bg-gold text-softWhite px-8 py-4 rounded-full hover:opacity-90 transition-all duration-300 font-body font-semibold text-lg shadow-lg hover:shadow-xl transform hover:-translate-y-1 flex items-center justify-center"
                 >
                   Get Free Website Review
                   <ArrowRight className="ml-2" size={20} />
@@ -129,7 +129,7 @@ export default function Home() {
                   href="https://wa.me/919876543210"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="bg-green-500 text-white px-8 py-4 rounded-full hover:bg-green-600 transition-all duration-300 font-semibold text-lg shadow-lg hover:shadow-xl transform hover:-translate-y-1 flex items-center justify-center"
+                  className="bg-green-500 text-white px-8 py-4 rounded-full hover:bg-green-600 transition-all duration-300 font-body font-semibold text-lg shadow-lg hover:shadow-xl transform hover:-translate-y-1 flex items-center justify-center"
                 >
                   Chat on WhatsApp
                   <ArrowRight className="ml-2" size={20} />
@@ -255,7 +255,7 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="py-20 bg-gradient-to-br from-blue-600 to-blue-700 text-white">
+      <section className="py-20 bg-gold text-softWhite">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 md:grid-cols-4 gap-8 text-center">
             <div>
@@ -263,28 +263,28 @@ export default function Home() {
                 <Users size={48} />
               </div>
               <p className="text-4xl font-bold mb-2">50+</p>
-              <p className="text-gold">Happy Clients</p>
+              <p className="text-softWhite">Happy Clients</p>
             </div>
             <div>
               <div className="flex justify-center mb-4">
                 <CheckCircle size={48} />
               </div>
               <p className="text-4xl font-bold mb-2">80+</p>
-              <p className="text-gold">Projects Completed</p>
+              <p className="text-softWhite">Projects Completed</p>
             </div>
             <div>
               <div className="flex justify-center mb-4">
                 <Award size={48} />
               </div>
               <p className="text-4xl font-bold mb-2">5.0</p>
-              <p className="text-gold">Average Rating</p>
+              <p className="text-softWhite">Average Rating</p>
             </div>
             <div>
               <div className="flex justify-center mb-4">
                 <TrendingUp size={48} />
               </div>
               <p className="text-4xl font-bold mb-2">100%</p>
-              <p className="text-gold">Client Satisfaction</p>
+              <p className="text-softWhite">Client Satisfaction</p>
             </div>
           </div>
         </div>
@@ -301,7 +301,7 @@ export default function Home() {
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <button
               onClick={() => scrollToSection('#contact')}
-              className="bg-white text-gold-600 px-8 py-4 rounded-full hover:bg-blue-50 transition-all duration-300 font-semibold text-lg shadow-lg hover:shadow-xl transform hover:-translate-y-1"
+              className="bg-gold text-softWhite px-8 py-4 rounded-full hover:opacity-90 transition-all duration-300 font-semibold text-lg shadow-lg hover:shadow-xl transform hover:-translate-y-1"
             >
               Start Your Project
             </button>

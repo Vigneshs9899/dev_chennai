@@ -77,14 +77,14 @@ export default function Services() {
   ];
 
   return (
-    <div id="services" className="pt-16 min-h-screen bg-gradient-to-br from-gray-50 to-white">
+    <div id="services" className="pt-16 min-h-screen bg-haze">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
         <div className="text-center mb-16">
           <h1 className="text-4xl sm:text-5xl font-bold text-gray-900 mb-4">
             Our Services
           </h1>
           <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-            Complete web development solutions for Chennai businesses. Everything you need to establish and grow your online presence.
+            Complete web development solutions for businesses. Everything you need to establish and grow your online presence.
           </p>
         </div>
 
@@ -94,7 +94,7 @@ export default function Services() {
               key={index}
               className="bg-white p-8 rounded-xl shadow-md hover:shadow-2xl transition-all duration-300 border border-gray-100 hover:border-blue-200 transform hover:-translate-y-2 group"
             >
-              <div className="text-blue-600 mb-4 group-hover:scale-110 transition-transform duration-300">
+              <div className="text-gold mb-4 group-hover:scale-110 transition-transform duration-300">
                 {service.icon}
               </div>
               <h3 className="text-xl font-semibold text-gray-900 mb-3">
@@ -106,7 +106,7 @@ export default function Services() {
               <ul className="space-y-2">
                 {service.features.map((feature, idx) => (
                   <li key={idx} className="flex items-center text-sm text-gray-600">
-                    <span className="w-1.5 h-1.5 bg-blue-600 rounded-full mr-2"></span>
+                    <span className="w-1.5 h-1.5 bg-gold rounded-full mr-2"></span>
                     {feature}
                   </li>
                 ))}
@@ -115,18 +115,18 @@ export default function Services() {
           ))}
         </div>
 
-        <div className="mt-16 bg-gradient-to-br from-blue-600 to-blue-700 rounded-2xl p-12 text-white text-center">
+        <div className="mt-16 bg-gold rounded-2xl p-12 text-softWhite text-center">
           <h2 className="text-3xl font-bold mb-4">
             Need a Custom Solution?
           </h2>
-          <p className="text-xl text-blue-100 mb-8 max-w-2xl mx-auto">
+          <p className="text-xl text-softWhite mb-8 max-w-2xl mx-auto">
             Every business is unique. Let's discuss your specific requirements and create a tailored solution for you.
           </p>
           <a
             href="https://wa.me/919876543210"
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-block bg-white text-blue-600 px-8 py-4 rounded-full hover:bg-blue-50 transition-all duration-300 font-semibold text-lg shadow-lg hover:shadow-xl transform hover:-translate-y-1"
+            className="inline-block bg-graphite text-softWhite px-8 py-4 rounded-full hover:bg-opacity-56 transition-all duration-300 font-semibold text-lg shadow-lg hover:shadow-xl transform hover:-translate-y-1"
           >
             Discuss Your Project
           </a>

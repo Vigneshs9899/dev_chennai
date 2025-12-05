@@ -4,8 +4,9 @@ export default {
   theme: {
     extend: {
       colors: {
-        gold: "#F5C77A",
+        gold: "#e77e23",
         softWhite: "#F8F9FA",
+        haze:"#e9ecec",
         graphite: "#1E1E1E",
         foxDark: "#141414",     // optional darker background
         foxMuted: "#B8B8B8",    // optional muted text

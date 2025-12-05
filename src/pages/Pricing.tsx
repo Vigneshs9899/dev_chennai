@@ -156,14 +156,14 @@ export default function Pricing() {
                 Keep your website running smoothly with our affordable monthly maintenance package. Regular updates, backups, and technical support included.
               </p>
               <div className="flex items-baseline mb-6">
-                <span className="text-5xl font-bold text-blue-600">₹1,000</span>
+                <span className="text-5xl font-bold text-gold">₹1,000</span>
                 <span className="text-xl text-gray-600 ml-2">/month</span>
               </div>
               <a
                 href="https://wa.me/919876543210"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-block bg-blue-600 text-white px-8 py-4 rounded-full hover:bg-blue-700 transition-all duration-300 font-semibold shadow-lg hover:shadow-xl transform hover:-translate-y-1"
+                className="inline-block bg-gold text-white px-8 py-4 rounded-full hover:bg-graphite transition-all duration-300 font-semibold shadow-lg hover:shadow-xl transform hover:-translate-y-1"
               >
                 Subscribe Now
               </a>
@@ -206,7 +206,7 @@ export default function Pricing() {
           </div>
         </div>
 
-        <div className="mt-16 bg-gradient-to-br from-blue-600 to-blue-700 rounded-2xl p-12 text-white text-center">
+        <div className="mt-16 bg-gold rounded-2xl p-12 text-softWhite text-center">
           <h2 className="text-3xl font-bold mb-4">
             Not Sure Which Plan to Choose?
           </h2>
@@ -217,7 +217,7 @@ export default function Pricing() {
             href="https://wa.me/919876543210"
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-block bg-white text-blue-600 px-8 py-4 rounded-full hover:bg-blue-50 transition-all duration-300 font-semibold text-lg shadow-lg hover:shadow-xl transform hover:-translate-y-1"
+            className="inline-block bg-graphite text-softWhite px-8 py-4 rounded-full hover:bg-opacity-85 transition-all duration-300 font-semibold text-lg shadow-lg hover:shadow-xl transform hover:-translate-y-1"
           >
             Get Free Consultation
           </a>

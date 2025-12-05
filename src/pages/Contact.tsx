@@ -70,7 +70,7 @@ export default function Contact() {
                       value={formData.name}
                       onChange={handleChange}
                       required
-                      className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all"
+                      className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-gold focus:border-transparent transition-all"
                       placeholder="Enter your name"
                     />
                   </div>
@@ -85,7 +85,7 @@ export default function Contact() {
                       value={formData.email}
                       onChange={handleChange}
                       required
-                      className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all"
+                      className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-gold focus:border-transparent transition-all"
                       placeholder="your@email.com"
                     />
                   </div>
@@ -100,7 +100,7 @@ export default function Contact() {
                       value={formData.phone}
                       onChange={handleChange}
                       required
-                      className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all"
+                      className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-gold focus:border-transparent transition-all"
                       placeholder="+91 98765 43210"
                     />
                   </div>
@@ -113,7 +113,7 @@ export default function Contact() {
                       name="businessType"
                       value={formData.businessType}
                       onChange={handleChange}
-                      className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all"
+                      className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-gold focus:border-transparent transition-all"
                     >
                       <option value="">Select your business type</option>
                       <option value="clinic">Clinic / Healthcare</option>
@@ -136,13 +136,13 @@ export default function Contact() {
                       onChange={handleChange}
                       required
                       rows={4}
-                      className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all resize-none"
+                      className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-gold focus:border-transparent transition-all resize-none"
                       placeholder="Tell us about your project..."
                     />
                   </div>
                   <button
                     type="submit"
-                    className="w-full bg-blue-600 text-white px-6 py-4 rounded-full hover:bg-blue-700 transition-all duration-300 font-semibold text-lg shadow-lg hover:shadow-xl transform hover:-translate-y-1 flex items-center justify-center"
+                    className="w-full bg-gold text-softWhite px-6 py-4 rounded-full hover:bg-graphite transition-all duration-300 font-semibold text-lg shadow-lg hover:shadow-xl transform hover:-translate-y-1 flex items-center justify-center"
                   >
                     Send Message
                     <Send size={20} className="ml-2" />
@@ -171,16 +171,16 @@ export default function Contact() {
               <h2 className="text-2xl font-bold text-gray-900 mb-6">Contact Information</h2>
               <div className="space-y-6">
                 <div className="flex items-start">
-                  <div className="flex-shrink-0 w-12 h-12 bg-blue-100 rounded-full flex items-center justify-center">
-                    <MapPin size={24} className="text-blue-600" />
+                  <div className="flex-shrink-0 w-12 h-12 bg-gold rounded-full flex items-center justify-center">
+                    <MapPin size={24} className="text-softWhite" />
                   </div>
                   <div className="ml-4">
                     <h3 className="text-lg font-semibold text-gray-900 mb-1">Location</h3>
-                    <p className="text-gray-600">Chennai, Tamil Nadu, India</p>
-                    <p className="text-sm text-gray-500 mt-1">Serving businesses across Chennai and nearby areas</p>
+                    <p className="text-gray-600">India</p>
+                    <p className="text-sm text-gray-500 mt-1">Serving businesses across India and nearby areas</p>
                   </div>
                 </div>
-                <div className="flex items-start">
+                {/* <div className="flex items-start">
                   <div className="flex-shrink-0 w-12 h-12 bg-green-100 rounded-full flex items-center justify-center">
                     <Phone size={24} className="text-green-600" />
                   </div>
@@ -191,20 +191,20 @@ export default function Contact() {
                     </a>
                     <p className="text-sm text-gray-500 mt-1">Mon - Sat: 9:00 AM - 7:00 PM</p>
                   </div>
-                </div>
+                </div> */}
                 <div className="flex items-start">
-                  <div className="flex-shrink-0 w-12 h-12 bg-blue-100 rounded-full flex items-center justify-center">
-                    <Mail size={24} className="text-blue-600" />
+                  <div className="flex-shrink-0 w-12 h-12 bg-gold rounded-full flex items-center justify-center">
+                    <Mail size={24} className="text-softWhite" />
                   </div>
                   <div className="ml-4">
                     <h3 className="text-lg font-semibold text-gray-900 mb-1">Email</h3>
-                    <a href="mailto:hello@devchennai.com" className="text-gray-600 hover:text-blue-600 transition-colors">
-                      hello@devchennai.com
+                    <a href="hello.foxpalette@gmail.com" className="text-graphite hover:text-gold transition-colors">
+                      hello.foxpalette@gmail.com
                     </a>
                     <p className="text-sm text-gray-500 mt-1">We'll respond within 24 hours</p>
                   </div>
                 </div>
-                <div className="flex items-start">
+                {/* <div className="flex items-start">
                   <div className="flex-shrink-0 w-12 h-12 bg-green-100 rounded-full flex items-center justify-center">
                     <Clock size={24} className="text-green-600" />
                   </div>
@@ -214,7 +214,7 @@ export default function Contact() {
                     <p className="text-gray-600">9:00 AM - 7:00 PM</p>
                     <p className="text-sm text-gray-500 mt-1">Sunday: By appointment only</p>
                   </div>
-                </div>
+                </div> */}
               </div>
             </div>
 
@@ -233,12 +233,12 @@ export default function Contact() {
               </div>
             </div>
 
-            <div className="mt-8 bg-gradient-to-br from-blue-50 to-white rounded-2xl p-8 border border-blue-100">
+            <div className="mt-8 bg-gradient-to-br from-gold-50 to-softWhite rounded-2xl p-8 border border-softWhite">
               <h3 className="text-xl font-bold text-gray-900 mb-4">Why Choose Us?</h3>
               <ul className="space-y-3">
                 <li className="flex items-start">
                   <CheckCircle size={20} className="text-green-500 mr-3 flex-shrink-0 mt-0.5" />
-                  <span className="text-gray-700">Based in Chennai, understanding local business needs</span>
+                  <span className="text-gray-700">Understanding local business needs</span>
                 </li>
                 <li className="flex items-start">
                   <CheckCircle size={20} className="text-green-500 mr-3 flex-shrink-0 mt-0.5" />

@@ -48,7 +48,7 @@ export default function Navbar() {
               <button
                 key={link.name}
                 onClick={() => scrollToSection(link.href)}
-                className="text-gold hover:opacity-90 transition-colors duration-200 font-medium"
+                className="text-softWhite hover:text-gold transition-colors font-body duration-200"
               >
                 {link.name}
               </button>
@@ -57,7 +57,7 @@ export default function Navbar() {
               href="https://wa.me/919876543210"
               target="_blank"
               rel="noopener noreferrer"
-              className="bg-green-500 text-white px-6 py-2 rounded-full hover:bg-green-600 transition-colors duration-200 font-medium"
+              className="bg-green-500 text-softWhite px-6 py-2 rounded-full hover:bg-green-600 transition-colors duration-200 font-body font-medium"
             >
               WhatsApp
             </a>

@@ -120,7 +120,7 @@ export default function Portfolio() {
           ))}
         </div>
 
-        <div className="mt-16 bg-gradient-to-br from-blue-600 to-blue-700 rounded-2xl p-12 text-white text-center">
+        <div className="mt-16 bg-gold rounded-2xl p-12 text-softWhite text-center">
           <h2 className="text-3xl font-bold mb-4">
             Want a Website Like These?
           </h2>
@@ -135,7 +135,7 @@ export default function Portfolio() {
                   element.scrollIntoView({ behavior: 'smooth' });
                 }
               }}
-              className="inline-block bg-white text-blue-600 px-8 py-4 rounded-full hover:bg-blue-50 transition-all duration-300 font-semibold text-lg shadow-lg hover:shadow-xl transform hover:-translate-y-1"
+              className="inline-block bg-graphite text-softWhite px-8 py-4 rounded-full transition-all duration-300 font-semibold text-lg shadow-lg hover:shadow-xl transform hover:-translate-y-1"
             >
               Start Your Project
             </button>

@@ -1,5 +1,5 @@
 import Lottie from "react-lottie-player";
-import foxAnimation from "../assets/fox.json";
+import foxAnimation from "../assets/fox-hero.json";
 
 export default function FoxLottie() {
   return (
