@@ -4,8 +4,9 @@ import Footer from './components/Footer';
 import WhatsAppButton from './components/WhatsAppButton';
 import Home from './pages/Home';
 import Services from './pages/Services';
-import Portfolio from './pages/Portfolio';
-import Pricing from './pages/Pricing';
+// import Portfolio from './pages/Portfolio';
+// import Pricing from './pages/Pricing';
+import AboutSection from './pages/AboutSection';
 import Contact from './pages/Contact';
 import CursorGlow from './components/CursorGlow';
 
@@ -28,9 +29,10 @@ function App() {
        <CursorGlow />
       <main>
         <Home />
+        <AboutSection />
         <Services />
-        <Portfolio />
-        <Pricing />
+        {/* <Portfolio /> */}
+        {/* <Pricing /> */}
         <Contact />
       </main>
       <Footer />

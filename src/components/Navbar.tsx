@@ -15,9 +15,10 @@ export default function Navbar() {
 
   const navLinks: { name: string; href: string }[] = [
     { name: "Home", href: "#home" },
+    { name: "About", href: "#about" },
     { name: "Services", href: "#services" },
-    { name: "Portfolio", href: "#portfolio" },
-    { name: "Pricing", href: "#pricing" },
+    // { name: "Portfolio", href: "#portfolio" },
+    // { name: "Pricing", href: "#pricing" },
     { name: "Contact", href: "#contact" },
   ];
 
@@ -106,7 +107,7 @@ export default function Navbar() {
               href="https://wa.me/919876543210"
               target="_blank"
               rel="noopener noreferrer"
-              className="block w-full text-left bg-green-500 text-white px-4 py-2 rounded-lg hover:bg-green-600 transition-colors duration-200 mt-2 text-sm"
+              className="block font-body w-full text-left bg-green-500 text-white px-4 py-2 rounded-lg hover:bg-green-600 transition-colors duration-200 mt-2 text-sm"
             >
               WhatsApp
             </a>

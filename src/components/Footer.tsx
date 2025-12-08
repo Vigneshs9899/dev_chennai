@@ -33,18 +33,18 @@ export default function Footer() {
                 </a>
               </li>
               <li>
+                <a href="#about" className="text-graphite hover:text-gold transition-colors">
+                  About
+                </a>
+              </li>
+              <li>
                 <a href="#services" className="text-graphite hover:text-gold transition-colors">
                   Services
                 </a>
               </li>
               <li>
-                <a href="#portfolio" className="text-graphite hover:text-gold transition-colors">
-                  Portfolio
-                </a>
-              </li>
-              <li>
-                <a href="#pricing" className="text-graphite hover:text-gold transition-colors">
-                  Pricing
+                <a href="#contact" className="text-graphite hover:text-gold transition-colors">
+                  Contact
                 </a>
               </li>
             </ul>
@@ -80,7 +80,7 @@ export default function Footer() {
         </div>
 
         <div className="border-t border-gray-800 mt-12 pt-8 text-center text-graphite font-body font-light">
-          <p>&copy; 2025 <span className='text-gold font-heading'>FoxPalette.</span> All rights reserved.</p>
+          <p>&copy; 2025 <span className='text-gold font-heading font-bold'>FoxPalette.</span> All rights reserved.</p>
         </div>
       </div>
     </footer>

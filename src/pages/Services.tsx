@@ -80,10 +80,10 @@ export default function Services() {
     <div id="services" className="pt-16 min-h-screen bg-softWhite">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
         <div className="text-center mb-16">
-          <h1 className="text-4xl sm:text-5xl font-bold text-gray-900 mb-4">
+          <h1 className="text-3xl sm:text-3xl font-bold text-gray-900 mb-4">
             Our Services
           </h1>
-          <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+          <p className="text-lg text-gray-600 max-w-3xl mx-auto">
             Complete web development solutions for businesses. Everything you need to establish and grow your online presence.
           </p>
         </div>
@@ -92,25 +92,20 @@ export default function Services() {
           {services.map((service, index) => (
             <div
               key={index}
-              className="p-8 hover:shadow-xl transition-all duration-300 border border-gray-100 hover:border-gold group"
+              className="p-8 hover:shadow-xl transition-all duration-300 border border-gray-100 hover:border-gold group text-center justify-center"
             >
-              <div className="text-gold mb-4 group-hover:scale-110 transition-transform duration-300">
+              <div className="text-gold mb-4 group-hover:scale-110 transition-transform duration-300 text-center justify-center flex mx-auto">
                 {service.icon}
               </div>
-              <h3 className="text-xl font-semibold text-gray-900 mb-3">
+              <h3 className="text-lg font-semibold text-gray-900 mb-3">
                 {service.title}
               </h3>
-              <p className="text-gray-600 mb-4">
+              <p className="text-sm text-gray-600 mb-4">
                 {service.description}
               </p>
-              <ul className="space-y-2">
-                {service.features.map((feature, idx) => (
-                  <li key={idx} className="flex items-center text-sm text-gray-600">
-                    <span className="w-1.5 h-1.5 bg-gold rounded-full mr-2"></span>
-                    {feature}
-                  </li>
-                ))}
-              </ul>
+
+              
+
             </div>
           ))}
         </div>
