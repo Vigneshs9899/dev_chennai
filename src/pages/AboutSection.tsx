@@ -8,7 +8,7 @@ const AboutSection: FC = () => {
       id="about"
       className="bg-softWhite py-16 sm:py-20 lg:py-24 border-t border-[#f3e6d9]"
     >
-      <div className="mx-auto flex max-w-6xl flex-col items-center gap-12 px-4 sm:px-6 lg:flex-row lg:gap-16 lg:px-8">
+      <div className="mx-auto flex max-w-7xl flex-col items-center gap-12 px-4 sm:px-6 lg:flex-row lg:gap-16 lg:px-8">
         {/* Lottie / visual side */}
         <div className="relative w-full max-w-md lg:max-w-lg">
           {/* Soft circular background */}

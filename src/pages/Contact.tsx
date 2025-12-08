@@ -1,15 +1,57 @@
-import { useState } from 'react';
-import { Mail, Phone, MapPin, Send, MessageCircle, Clock, CheckCircle } from 'lucide-react';
+import { useEffect, useRef, useState } from "react";
+import {
+  Mail,
+  MapPin,
+  Send,
+  MessageCircle,
+  CheckCircle,
+} from "lucide-react";
 
 export default function Contact() {
+  const sectionRef = useRef<HTMLDivElement | null>(null);
+  const [parallax, setParallax] = useState(0);
+
   const [formData, setFormData] = useState({
-    name: '',
-    email: '',
-    phone: '',
-    businessType: '',
-    message: '',
+    name: "",
+    email: "",
+    phone: "",
+    businessType: "",
+    message: "",
   });
   const [isSubmitted, setIsSubmitted] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      if (!sectionRef.current) return;
+
+      const isDesktop = window.innerWidth >= 1024;
+      if (!isDesktop) {
+        setParallax(0);
+        return;
+      }
+
+      const rect = sectionRef.current.getBoundingClientRect();
+      const WH =
+        window.innerHeight || document.documentElement.clientHeight;
+
+      const progress = 1 - rect.top / WH;
+      const clamped = Math.min(Math.max(progress, 0), 1);
+      setParallax(clamped);
+    };
+
+    handleScroll();
+    window.addEventListener("scroll", handleScroll);
+    window.addEventListener("resize", handleScroll);
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+      window.removeEventListener("resize", handleScroll);
+    };
+  }, []);
+
+  // Subtle parallax values
+  const bgTranslate = parallax * -60;
+  const leftTranslate = parallax * -20;
+  const rightTranslate = parallax * 20;
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
@@ -17,103 +59,112 @@ export default function Contact() {
     setTimeout(() => {
       setIsSubmitted(false);
       setFormData({
-        name: '',
-        email: '',
-        phone: '',
-        businessType: '',
-        message: '',
+        name: "",
+        email: "",
+        phone: "",
+        businessType: "",
+        message: "",
       });
     }, 3000);
   };
 
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
-    setFormData({
-      ...formData,
-      [e.target.name]: e.target.value,
-    });
+  const handleChange = (
+    e: React.ChangeEvent<
+      HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement
+    >
+  ) => {
+    setFormData({ ...formData, [e.target.name]: e.target.value });
   };
 
   return (
-    <div id="contact" className="pt-16 min-h-screen bg-softWhite">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
+    <section
+      id="contact"
+      ref={sectionRef}
+      className="relative overflow-hidden bg-softWhite pt-24 pb-20"
+    >
+      {/* Background accent */}
+      <div
+        className="pointer-events-none absolute -top-40 left-1/2 -z-10 h-[420px] w-[420px] -translate-x-1/2 rounded-full bg-gradient-to-tr from-[#ffe7cf] via-white to-[#ffe0c0] blur-3xl"
+        style={{
+          transform: `translateY(${bgTranslate}px) translateX(-50%)`,
+          transition: "transform 0.08s linear",
+        }}
+      />
+
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        {/* Header */}
         <div className="text-center mb-16">
-          <h1 className="text-4xl sm:text-5xl font-bold text-gray-900 mb-4">
+          <p className="text-xs uppercase tracking-[0.2em] text-[#e77e23] mb-2">
+            Let’s talk
+          </p>
+          <h1 className="text-3xl sm:text-4xl lg:text-5xl font-heading font-bold text-graphite mb-4">
             Get In Touch
           </h1>
-          <p className="font-body text-lg text-gray-600 max-w-3xl mx-auto">
-            Ready to take your business online? Let's discuss your project and create something amazing together.
+          <p className="font-body text-base sm:text-lg text-gray-600 max-w-3xl mx-auto">
+            Ready to take your business online? Let’s build something fast,
+            modern, and made to convert.
           </p>
         </div>
 
+        {/* Main grid */}
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
-          <div>
-            <div className="bg-softWhite p-8 mb-8">
-              <h2 className="text-2xl font-bold text-gray-900 mb-6">Send Us a Message</h2>
+          {/* LEFT: form + WhatsApp */}
+          <div
+            style={{
+              transform: `translateY(${leftTranslate}px)`,
+              transition: "transform 0.12s linear",
+            }}
+          >
+            {/* Form */}
+            <div className="rounded-3xl border border-[#f3e6d9] bg-white/90 p-8 shadow-sm mb-8">
+              <h2 className="text-2xl font-semibold text-graphite mb-6">
+                Send Us a Message
+              </h2>
+
               {isSubmitted ? (
                 <div className="text-center py-12">
                   <div className="inline-flex items-center justify-center w-16 h-16 bg-green-100 rounded-full mb-4">
-                    <CheckCircle size={32} className="text-green-600" />
+                    <CheckCircle className="text-green-600" size={32} />
                   </div>
-                  <h3 className="text-xl font-semibold text-gray-900 mb-2">Message Sent!</h3>
-                  <p className="text-gray-600">We'll get back to you within 24 hours.</p>
+                  <h3 className="text-xl font-semibold text-graphite mb-2">
+                    Message Sent!
+                  </h3>
+                  <p className="text-gray-600">
+                    We’ll get back to you within 24 hours.
+                  </p>
                 </div>
               ) : (
-                <form onSubmit={handleSubmit} className="space-y-6">
+                <form onSubmit={handleSubmit} className="space-y-5">
+                  {/** Inputs unchanged but cleaned */}
+                  {[
+                    { label: "Your Name", name: "name", type: "text" },
+                    { label: "Email Address", name: "email", type: "email" },
+                    { label: "Phone Number", name: "phone", type: "tel" },
+                  ].map((field) => (
+                    <div key={field.name}>
+                      <label className="block text-sm font-semibold text-gray-700 mb-1">
+                        {field.label}
+                      </label>
+                      <input
+                        type={field.type}
+                        name={field.name}
+                        value={(formData as any)[field.name]}
+                        onChange={handleChange}
+                        required
+                        className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-gold focus:border-transparent transition-all"
+                      />
+                    </div>
+                  ))}
+
                   <div>
-                    <label htmlFor="name" className="block text-sm font-semibold text-gray-700 mb-2">
-                      Your Name *
-                    </label>
-                    <input
-                      type="text"
-                      id="name"
-                      name="name"
-                      value={formData.name}
-                      onChange={handleChange}
-                      required
-                      className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-gold focus:border-transparent transition-all"
-                      placeholder="Enter your name"
-                    />
-                  </div>
-                  <div>
-                    <label htmlFor="email" className="block text-sm font-semibold text-gray-700 mb-2">
-                      Email Address *
-                    </label>
-                    <input
-                      type="email"
-                      id="email"
-                      name="email"
-                      value={formData.email}
-                      onChange={handleChange}
-                      required
-                      className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-gold focus:border-transparent transition-all"
-                      placeholder="your@email.com"
-                    />
-                  </div>
-                  <div>
-                    <label htmlFor="phone" className="block text-sm font-semibold text-gray-700 mb-2">
-                      Phone Number *
-                    </label>
-                    <input
-                      type="tel"
-                      id="phone"
-                      name="phone"
-                      value={formData.phone}
-                      onChange={handleChange}
-                      required
-                      className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-gold focus:border-transparent transition-all"
-                      placeholder="+91 98765 43210"
-                    />
-                  </div>
-                  <div>
-                    <label htmlFor="businessType" className="block text-sm font-semibold text-gray-700 mb-2">
+                    <label className="block text-sm font-semibold text-gray-700 mb-1">
                       Business Type
                     </label>
                     <select
-                      id="businessType"
                       name="businessType"
                       value={formData.businessType}
                       onChange={handleChange}
-                      className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-gold focus:border-transparent transition-all"
+                      className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-gold focus:border-transparent"
                     >
                       <option value="">Select your business type</option>
                       <option value="clinic">Clinic / Healthcare</option>
@@ -125,138 +176,129 @@ export default function Contact() {
                       <option value="other">Other</option>
                     </select>
                   </div>
+
                   <div>
-                    <label htmlFor="message" className="block text-sm font-semibold text-gray-700 mb-2">
-                      Your Message *
+                    <label className="block text-sm font-semibold text-gray-700 mb-1">
+                      Your Message
                     </label>
                     <textarea
-                      id="message"
                       name="message"
+                      rows={4}
                       value={formData.message}
                       onChange={handleChange}
                       required
-                      rows={4}
-                      className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-gold focus:border-transparent transition-all resize-none"
+                      className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-gold focus:border-transparent resize-none"
                       placeholder="Tell us about your project..."
                     />
                   </div>
+
                   <button
                     type="submit"
-                    className="w-full bg-gold text-softWhite px-6 py-4 rounded-full transition-all duration-300 font-semibold text-lg shadow-lg hover:shadow-xl transform hover:-translate-y-1 flex items-center justify-center"
+                    className="w-full bg-gold text-softWhite px-6 py-4 rounded-full font-medium shadow-lg hover:shadow-xl hover:-translate-y-[1px] transition-all flex items-center justify-center"
                   >
                     Send Message
-                    <Send size={20} className="ml-2" />
+                    <Send size={18} className="ml-2" />
                   </button>
                 </form>
               )}
             </div>
 
-            <div className="bg-gradient-to-br from-green-500 to-green-600 rounded-2xl shadow-lg p-8 text-white">
-              <h3 className="text-2xl font-bold mb-4">Prefer WhatsApp?</h3>
-              <p className="mb-6">Get instant response on WhatsApp. We're online and ready to help!</p>
+            {/* WhatsApp CTA */}
+            <div className="bg-gradient-to-br from-green-500 to-green-600 rounded-3xl shadow-lg p-8 text-white">
+              <h3 className="text-2xl font-semibold mb-2">Prefer WhatsApp?</h3>
+              <p className="mb-5 text-sm opacity-90">
+                Get instant replies from our team.
+              </p>
               <a
                 href="https://wa.me/919876543210"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center bg-white text-green-600 px-6 py-3 rounded-full hover:bg-green-50 transition-all duration-300 font-semibold shadow-lg hover:shadow-xl transform hover:-translate-y-1"
+                className="inline-flex items-center bg-white text-green-600 px-6 py-3 rounded-full hover:bg-green-50 transition-all shadow-md"
               >
-                <MessageCircle size={24} className="mr-2" />
+                <MessageCircle size={22} className="mr-2" />
                 Chat on WhatsApp
               </a>
             </div>
           </div>
 
-          <div>
-            <div className="bg-softWhite p-8 mb-8">
-              <h2 className="text-2xl font-bold text-gray-900 mb-6">Contact Information</h2>
-              <div className="space-y-6">
+          {/* RIGHT: info + map + trust */}
+          <div
+            style={{
+              transform: `translateY(${rightTranslate}px)`,
+              transition: "transform 0.12s linear",
+            }}
+          >
+            {/* Info */}
+            <div className="rounded-3xl border border-[#f3e6d9] bg-white/90 p-8 shadow-sm mb-8">
+              <h2 className="text-2xl font-semibold text-graphite mb-6">
+                Contact Information
+              </h2>
+
+              <div className="space-y-5">
                 <div className="flex items-start">
-                  <div className="flex-shrink-0 w-12 h-12 bg-gold rounded-full flex items-center justify-center">
-                    <MapPin size={24} className="text-softWhite" />
+                  <div className="w-12 h-12 bg-gold rounded-full flex items-center justify-center">
+                    <MapPin size={22} className="text-softWhite" />
                   </div>
                   <div className="ml-4">
-                    <h3 className="text-lg font-semibold text-gray-900 mb-1">Location</h3>
-                    <p className="text-gray-600">India</p>
-                    <p className="text-sm text-gray-500 mt-1">Serving businesses across India and nearby areas</p>
+                    <p className="font-medium text-graphite">Location</p>
+                    <p className="text-sm text-gray-600">India</p>
                   </div>
                 </div>
-                {/* <div className="flex items-start">
-                  <div className="flex-shrink-0 w-12 h-12 bg-green-100 rounded-full flex items-center justify-center">
-                    <Phone size={24} className="text-green-600" />
-                  </div>
-                  <div className="ml-4">
-                    <h3 className="text-lg font-semibold text-gray-900 mb-1">Phone</h3>
-                    <a href="tel:+919876543210" className="text-gray-600 hover:text-blue-600 transition-colors">
-                      +91 98765 43210
-                    </a>
-                    <p className="text-sm text-gray-500 mt-1">Mon - Sat: 9:00 AM - 7:00 PM</p>
-                  </div>
-                </div> */}
+
                 <div className="flex items-start">
-                  <div className="flex-shrink-0 w-12 h-12 bg-gold rounded-full flex items-center justify-center">
-                    <Mail size={24} className="text-softWhite" />
+                  <div className="w-12 h-12 bg-gold rounded-full flex items-center justify-center">
+                    <Mail size={22} className="text-softWhite" />
                   </div>
                   <div className="ml-4">
-                    <h3 className="text-lg font-semibold text-gray-900 mb-1">Email</h3>
-                    <a href="hello.foxpalette@gmail.com" className="text-graphite hover:text-gold transition-colors">
+                    <p className="font-medium text-graphite">Email</p>
+                    <a
+                      href="mailto:hello.foxpalette@gmail.com"
+                      className="text-sm text-graphite hover:text-gold"
+                    >
                       hello.foxpalette@gmail.com
                     </a>
-                    <p className="text-sm text-gray-500 mt-1">We'll respond within 24 hours</p>
                   </div>
                 </div>
-                {/* <div className="flex items-start">
-                  <div className="flex-shrink-0 w-12 h-12 bg-green-100 rounded-full flex items-center justify-center">
-                    <Clock size={24} className="text-green-600" />
-                  </div>
-                  <div className="ml-4">
-                    <h3 className="text-lg font-semibold text-gray-900 mb-1">Working Hours</h3>
-                    <p className="text-gray-600">Monday - Saturday</p>
-                    <p className="text-gray-600">9:00 AM - 7:00 PM</p>
-                    <p className="text-sm text-gray-500 mt-1">Sunday: By appointment only</p>
-                  </div>
-                </div> */}
               </div>
             </div>
 
-            <div className="bg-softWhite rounded-2xl shadow-lg overflow-hidden">
+            {/* Map */}
+            <div className="rounded-3xl overflow-hidden shadow-lg mb-8">
               <div className="h-64">
                 <iframe
                   src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d248849.90089943495!2d80.04419904999999!3d13.047984!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3a5265ea4f7d3361%3A0x6e61a70b6863d433!2sChennai%2C%20Tamil%20Nadu!5e0!3m2!1sen!2sin!4v1234567890"
-                  width="100%"
-                  height="100%"
-                  style={{ border: 0 }}
-                  allowFullScreen
+                  className="w-full h-full border-none"
                   loading="lazy"
-                  referrerPolicy="no-referrer-when-downgrade"
                   title="Chennai Location"
                 />
               </div>
             </div>
 
-            <div className="mt-8 bg-softWhite p-8">
-              <h3 className="text-xl font-bold text-gray-900 mb-4">Why Choose Us?</h3>
-              <ul className="space-y-3">
-                <li className="flex items-start">
-                  <CheckCircle size={20} className="text-green-500 mr-3 flex-shrink-0 mt-0.5" />
-                  <span className="text-gray-700">Understanding local business needs</span>
-                </li>
-                <li className="flex items-start">
-                  <CheckCircle size={20} className="text-green-500 mr-3 flex-shrink-0 mt-0.5" />
-                  <span className="text-gray-700">Affordable pricing with no hidden charges</span>
-                </li>
-                <li className="flex items-start">
-                  <CheckCircle size={20} className="text-green-500 mr-3 flex-shrink-0 mt-0.5" />
-                  <span className="text-gray-700">Fast turnaround time and dedicated support</span>
-                </li>
-                <li className="flex items-start">
-                  <CheckCircle size={20} className="text-green-500 mr-3 flex-shrink-0 mt-0.5" />
-                  <span className="text-gray-700">Mobile-first, SEO-optimized websites</span>
-                </li>
+            {/* Trust list */}
+            <div className="rounded-3xl border border-[#f3e6d9] bg-white/90 p-8 shadow-sm">
+              <h3 className="text-lg font-semibold text-graphite mb-4">
+                Why Choose FoxPalette?
+              </h3>
+              <ul className="space-y-3 text-sm text-gray-700">
+                {[
+                  "Understanding local business needs",
+                  "Transparent pricing",
+                  "Fast delivery & support",
+                  "SEO-first development",
+                ].map((text) => (
+                  <li key={text} className="flex items-center">
+                    <CheckCircle
+                      size={18}
+                      className="text-green-500 mr-3"
+                    />
+                    {text}
+                  </li>
+                ))}
               </ul>
             </div>
           </div>
         </div>
       </div>
-    </div>
+    </section>
   );
 }
