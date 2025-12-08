@@ -41,38 +41,18 @@ export default function Portfolio() {
       icon: <Stethoscope size={24} />,
       features: ['Treatment Info', 'Before/After Gallery', 'Emergency Contact', 'Insurance Info', 'Patient Forms', 'Virtual Tour'],
       color: 'from-teal-500 to-teal-600',
-    },
-    {
-      id: 5,
-      title: 'Smart Tuition Center',
-      category: 'Education',
-      description: 'Interactive coaching website with online test series, study materials download, live class schedule, teacher introduction, and performance tracking for students.',
-      image: 'https://images.unsplash.com/photo-1509062522246-3755977927d7?w=800&h=600&fit=crop',
-      icon: <GraduationCap size={24} />,
-      features: ['Online Tests', 'Study Materials', 'Live Classes', 'Progress Tracking', 'Student Portal', 'Parent Communication'],
-      color: 'from-blue-500 to-blue-600',
-    },
-    {
-      id: 6,
-      title: 'Spice Garden Restaurant',
-      category: 'Local Business',
-      description: 'Appetizing restaurant website featuring digital menu, online ordering, table reservation, chef specials, customer reviews, and food delivery integration.',
-      image: 'https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?w=800&h=600&fit=crop',
-      icon: <Store size={24} />,
-      features: ['Digital Menu', 'Online Ordering', 'Table Booking', 'Food Gallery', 'Reviews', 'Delivery Info'],
-      color: 'from-orange-500 to-orange-600',
-    },
+    }
   ];
 
   return (
-    <div id="portfolio" className="pt-16 min-h-screen bg-gradient-to-br from-gray-50 to-white">
+    <div id="portfolio" className="pt-16 min-h-screen bg-softWhite">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
         <div className="text-center mb-16">
           <h1 className="text-4xl sm:text-5xl font-bold text-gray-900 mb-4">
             Our Portfolio
           </h1>
           <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-            Sample websites designed for Chennai businesses. Each project is customized to meet specific business needs and attract the right customers.
+            Sample websites designed for businesses. Each project is customized to meet specific business needs and attract the right customers.
           </p>
         </div>
 
@@ -120,11 +100,11 @@ export default function Portfolio() {
           ))}
         </div>
 
-        <div className="mt-16 bg-gold rounded-2xl p-12 text-softWhite text-center">
+        <div className="mt-16 bg-softWhite p-12 text-graphite text-center">
           <h2 className="text-3xl font-bold mb-4">
             Want a Website Like These?
           </h2>
-          <p className="text-xl text-blue-100 mb-8 max-w-2xl mx-auto">
+          <p className="text-xl text-graphite mb-8 max-w-2xl mx-auto">
             These are sample designs. Your website will be uniquely crafted to represent your brand and business goals.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
@@ -135,7 +115,7 @@ export default function Portfolio() {
                   element.scrollIntoView({ behavior: 'smooth' });
                 }
               }}
-              className="inline-block bg-graphite text-softWhite px-8 py-4 rounded-full transition-all duration-300 font-semibold text-lg shadow-lg hover:shadow-xl transform hover:-translate-y-1"
+              className="inline-block bg-gold text-softWhite px-8 py-4 rounded-full transition-all duration-300 font-semibold text-lg shadow-lg hover:shadow-xl transform hover:-translate-y-1"
             >
               Start Your Project
             </button>

@@ -106,15 +106,15 @@ export default function Home() {
 
   return (
     <div id="home" className="pt-16">
-      <section className="relative bg-graphite text-softWhite min-h-screen flex items-center">
+      <section className="relative bg-softWhite text-graphite min-h-screen flex items-center">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
             <div className="text-center lg:text-left">
-              <h1 className="text-4xl sm:text-5xl lg:text-6xl font-body font-bold text-gold mb-6 leading-tight">
+              <h1 className="text-4xl sm:text-5xl lg:text-6xl font-heading font-bold text-graphite mb-6 leading-tight">
                 Web Developer for{' '}
                 <span className="text-gold">Businesses</span>
               </h1>
-              <p className="text-xl font-body text-softWhite mb-8 leading-relaxed">
+              <p className="text-xl font-body text-graphite mb-8 leading-relaxed">
                 Affordable websites for doctors, coaching centers & local businesses. Get online and grow your business today!
               </p>
               <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
@@ -145,7 +145,7 @@ export default function Home() {
                       />
                     ))}
                   </div>
-                  <span className="ml-3 text-sm text-softWhite">50+ Happy Clients</span>
+                  <span className="ml-3 text-sm text-graphite">50+ Happy Clients</span>
                 </div>
                 <div className="flex items-center">
                   <div className="flex text-yellow-400">
@@ -153,7 +153,7 @@ export default function Home() {
                       <Star key={i} size={20} fill="currentColor" />
                     ))}
                   </div>
-                  <span className="ml-2 text-sm text-softWhite">5.0 Rating</span>
+                  <span className="ml-2 text-sm text-graphite">5.0 Rating</span>
                 </div>
               </div>
             </div>
@@ -168,10 +168,10 @@ export default function Home() {
         </div>
       </section>
 
-      <section ref={sectionRef} className="py-20 bg-white">
+      <section ref={sectionRef} className="py-20 bg-softWhite">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
-            <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 mb-4">
+            <h2 className="text-3xl sm:text-4xl font-bold text-graphite mb-4">
               Our Services
             </h2>
             <p className="text-xl text-gray-600">
@@ -182,7 +182,7 @@ export default function Home() {
             {services.map((service, index) => (
               <div
                 key={index}
-                className="bg-white p-8 rounded-xl shadow-md hover:shadow-xl transition-all duration-300 border border-gray-100 hover:border-blue-200 transform hover:-translate-y-2"
+                className="p-8 hover:shadow-xl transition-all duration-300 border border-gray-100 hover:border-gold"
                 style={{ transitionDelay: `${index * 100}ms` }}
               >
                 <div className="text-5xl mb-4">{service.icon}</div>
@@ -196,7 +196,7 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="py-20 bg-gradient-to-br from-blue-50 to-white">
+      <section className="py-20 bg-softWhite">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
             <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 mb-4">
@@ -210,7 +210,7 @@ export default function Home() {
             {clientTypes.map((client, index) => (
               <div
                 key={index}
-                className="bg-white p-8 rounded-xl shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2"
+                className="p-8 hover:border-gold hover:shadow-xl border border-gray-100 transition-all duration-300"
               >
                 <div className="text-6xl mb-4 text-center">{client.icon}</div>
                 <h3 className="text-2xl font-semibold text-gray-900 mb-3 text-center">
@@ -223,7 +223,7 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="py-20 bg-white">
+      <section className="py-20 bg-softWhite">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
             <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 mb-4">
@@ -237,7 +237,7 @@ export default function Home() {
             {testimonials.map((testimonial, index) => (
               <div
                 key={index}
-                className="bg-gradient-to-br from-blue-50 to-white p-8 rounded-xl shadow-md hover:shadow-xl transition-all duration-300 border border-blue-100"
+                className="p-8 hover:shadow-xl hover:border-gold transition-all duration-300 border border-gray-100"
               >
                 <div className="flex mb-4">
                   {[...Array(testimonial.rating)].map((_, i) => (
@@ -255,42 +255,42 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="py-20 bg-gold text-softWhite">
+      <section className="py-20 bg-softWhite text-graphite">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 md:grid-cols-4 gap-8 text-center">
             <div>
-              <div className="flex justify-center mb-4">
+              <div className="flex text-gold justify-center mb-4">
                 <Users size={48} />
               </div>
-              <p className="text-4xl font-bold mb-2">50+</p>
-              <p className="text-softWhite">Happy Clients</p>
+              <p className="text-4xl font-bold mb-2 text-gold">50+</p>
+              <p className="text-graphite">Happy Clients</p>
             </div>
             <div>
-              <div className="flex justify-center mb-4">
+              <div className="flex text-gold justify-center mb-4">
                 <CheckCircle size={48} />
               </div>
-              <p className="text-4xl font-bold mb-2">80+</p>
-              <p className="text-softWhite">Projects Completed</p>
+              <p className="text-4xl font-bold mb-2 text-gold">80+</p>
+              <p className="text-graphite">Projects Completed</p>
             </div>
             <div>
-              <div className="flex justify-center mb-4">
-                <Award size={48} />
+              <div className="flex text-gold justify-center mb-4">
+                <Award size={48}/>
               </div>
-              <p className="text-4xl font-bold mb-2">5.0</p>
-              <p className="text-softWhite">Average Rating</p>
+              <p className="text-4xl font-bold mb-2 text-gold">5.0</p>
+              <p className="text-graphite">Average Rating</p>
             </div>
             <div>
-              <div className="flex justify-center mb-4">
+              <div className="flex text-gold justify-center mb-4">
                 <TrendingUp size={48} />
               </div>
-              <p className="text-4xl font-bold mb-2">100%</p>
-              <p className="text-softWhite">Client Satisfaction</p>
+              <p className="text-4xl font-bold mb-2 text-gold">100%</p>
+              <p className="text-graphite">Client Satisfaction</p>
             </div>
           </div>
         </div>
       </section>
 
-      <section className="py-20 bg-graphite text-softWhite">
+      <section className="py-20 bg-softWhite text-graphite">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <h2 className="text-3xl sm:text-4xl font-bold mb-6">
             Ready to Take Your Business Online?

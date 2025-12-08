@@ -81,7 +81,7 @@ export default function Pricing() {
   ];
 
   return (
-    <div id="pricing" className="pt-16 min-h-screen bg-gradient-to-br from-gray-50 to-white">
+    <div id="pricing" className="pt-16 min-h-screen bg-softWhite">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
         <div className="text-center mb-16">
           <h1 className="text-4xl sm:text-5xl font-bold text-gray-900 mb-4">
@@ -146,7 +146,7 @@ export default function Pricing() {
           ))}
         </div>
 
-        <div className="bg-white rounded-2xl shadow-lg p-8 md:p-12">
+        <div className="bg-softWhite p-8 md:p-12">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
             <div>
               <h2 className="text-3xl font-bold text-gray-900 mb-4">
@@ -182,7 +182,7 @@ export default function Pricing() {
           </div>
         </div>
 
-        <div className="mt-16 bg-gradient-to-br from-gray-100 to-gray-50 rounded-2xl p-8 md:p-12">
+        <div className="mt-16 bg-softWhite rounded-2xl p-8 md:p-12">
           <h2 className="text-2xl font-bold text-gray-900 mb-6 text-center">
             Frequently Asked Questions
           </h2>

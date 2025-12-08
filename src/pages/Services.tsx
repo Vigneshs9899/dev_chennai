@@ -77,7 +77,7 @@ export default function Services() {
   ];
 
   return (
-    <div id="services" className="pt-16 min-h-screen bg-haze">
+    <div id="services" className="pt-16 min-h-screen bg-softWhite">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
         <div className="text-center mb-16">
           <h1 className="text-4xl sm:text-5xl font-bold text-gray-900 mb-4">
@@ -92,7 +92,7 @@ export default function Services() {
           {services.map((service, index) => (
             <div
               key={index}
-              className="bg-white p-8 rounded-xl shadow-md hover:shadow-2xl transition-all duration-300 border border-gray-100 hover:border-blue-200 transform hover:-translate-y-2 group"
+              className="p-8 hover:shadow-xl transition-all duration-300 border border-gray-100 hover:border-gold group"
             >
               <div className="text-gold mb-4 group-hover:scale-110 transition-transform duration-300">
                 {service.icon}
@@ -115,22 +115,7 @@ export default function Services() {
           ))}
         </div>
 
-        <div className="mt-16 bg-gold rounded-2xl p-12 text-softWhite text-center">
-          <h2 className="text-3xl font-bold mb-4">
-            Need a Custom Solution?
-          </h2>
-          <p className="text-xl text-softWhite mb-8 max-w-2xl mx-auto">
-            Every business is unique. Let's discuss your specific requirements and create a tailored solution for you.
-          </p>
-          <a
-            href="https://wa.me/919876543210"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="inline-block bg-graphite text-softWhite px-8 py-4 rounded-full hover:bg-opacity-56 transition-all duration-300 font-semibold text-lg shadow-lg hover:shadow-xl transform hover:-translate-y-1"
-          >
-            Discuss Your Project
-          </a>
-        </div>
+       
       </div>
     </div>
   );

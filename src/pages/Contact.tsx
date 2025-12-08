@@ -34,20 +34,20 @@ export default function Contact() {
   };
 
   return (
-    <div id="contact" className="pt-16 min-h-screen bg-gradient-to-br from-gray-50 to-white">
+    <div id="contact" className="pt-16 min-h-screen bg-softWhite">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
         <div className="text-center mb-16">
           <h1 className="text-4xl sm:text-5xl font-bold text-gray-900 mb-4">
             Get In Touch
           </h1>
-          <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+          <p className="font-body text-lg text-gray-600 max-w-3xl mx-auto">
             Ready to take your business online? Let's discuss your project and create something amazing together.
           </p>
         </div>
 
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
           <div>
-            <div className="bg-white rounded-2xl shadow-lg p-8 mb-8">
+            <div className="bg-softWhite p-8 mb-8">
               <h2 className="text-2xl font-bold text-gray-900 mb-6">Send Us a Message</h2>
               {isSubmitted ? (
                 <div className="text-center py-12">
@@ -142,7 +142,7 @@ export default function Contact() {
                   </div>
                   <button
                     type="submit"
-                    className="w-full bg-gold text-softWhite px-6 py-4 rounded-full hover:bg-graphite transition-all duration-300 font-semibold text-lg shadow-lg hover:shadow-xl transform hover:-translate-y-1 flex items-center justify-center"
+                    className="w-full bg-gold text-softWhite px-6 py-4 rounded-full transition-all duration-300 font-semibold text-lg shadow-lg hover:shadow-xl transform hover:-translate-y-1 flex items-center justify-center"
                   >
                     Send Message
                     <Send size={20} className="ml-2" />
@@ -167,7 +167,7 @@ export default function Contact() {
           </div>
 
           <div>
-            <div className="bg-white rounded-2xl shadow-lg p-8 mb-8">
+            <div className="bg-softWhite p-8 mb-8">
               <h2 className="text-2xl font-bold text-gray-900 mb-6">Contact Information</h2>
               <div className="space-y-6">
                 <div className="flex items-start">
@@ -218,7 +218,7 @@ export default function Contact() {
               </div>
             </div>
 
-            <div className="bg-white rounded-2xl shadow-lg overflow-hidden">
+            <div className="bg-softWhite rounded-2xl shadow-lg overflow-hidden">
               <div className="h-64">
                 <iframe
                   src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d248849.90089943495!2d80.04419904999999!3d13.047984!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3a5265ea4f7d3361%3A0x6e61a70b6863d433!2sChennai%2C%20Tamil%20Nadu!5e0!3m2!1sen!2sin!4v1234567890"
@@ -233,7 +233,7 @@ export default function Contact() {
               </div>
             </div>
 
-            <div className="mt-8 bg-gradient-to-br from-gold-50 to-softWhite rounded-2xl p-8 border border-softWhite">
+            <div className="mt-8 bg-softWhite p-8">
               <h3 className="text-xl font-bold text-gray-900 mb-4">Why Choose Us?</h3>
               <ul className="space-y-3">
                 <li className="flex items-start">

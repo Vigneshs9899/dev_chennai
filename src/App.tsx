@@ -7,6 +7,7 @@ import Services from './pages/Services';
 import Portfolio from './pages/Portfolio';
 import Pricing from './pages/Pricing';
 import Contact from './pages/Contact';
+import CursorGlow from './components/CursorGlow';
 
 function App() {
   useEffect(() => {
@@ -24,6 +25,7 @@ function App() {
   return (
     <div className="min-h-screen bg-white">
       <Navbar />
+       <CursorGlow />
       <main>
         <Home />
         <Services />
