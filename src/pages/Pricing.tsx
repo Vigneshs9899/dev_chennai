@@ -206,18 +206,18 @@ export default function Pricing() {
           </div>
         </div>
 
-        <div className="mt-16 bg-gold rounded-2xl p-12 text-softWhite text-center">
+        <div className="mt-16 bg-softWhite rounded-2xl p-12 text-graphite text-center">
           <h2 className="text-3xl font-bold mb-4">
             Not Sure Which Plan to Choose?
           </h2>
-          <p className="text-xl text-blue-100 mb-8 max-w-2xl mx-auto">
+          <p className="font-body text-lg text-graphite mb-8 max-w-2xl mx-auto">
             Let's discuss your requirements and find the perfect solution for your business. Free consultation available!
           </p>
           <a
             href="https://wa.me/919876543210"
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-block bg-graphite text-softWhite px-8 py-4 rounded-full hover:bg-opacity-85 transition-all duration-300 font-semibold text-lg shadow-lg hover:shadow-xl transform hover:-translate-y-1"
+            className="font-body inline-block bg-gold text-softWhite px-8 py-4 rounded-full hover:bg-opacity-85 transition-all duration-300 font-light text-lg shadow-lg hover:shadow-xl transform hover:-translate-y-1"
           >
             Get Free Consultation
           </a>
