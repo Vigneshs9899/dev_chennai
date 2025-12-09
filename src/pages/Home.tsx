@@ -83,7 +83,7 @@ export default function Home() {
               }}
             >
               <p className="mb-3 text-xs font-medium uppercase tracking-[0.2em] text-[#e77e23]">
-                FoxPalette Studio
+                FoxPalette
               </p>
               <h1 className="text-2xl sm:text-3xl lg:text-6xl font-heading font-bold text-graphite mb-6 leading-tight">
                 Web Developer for{" "}

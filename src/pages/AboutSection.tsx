@@ -31,13 +31,17 @@ const AboutSection: FC = () => {
 
         {/* Text content side */}
         <div className="w-full max-w-xl">
+
+          <p className="mb-3 text-xs font-medium uppercase tracking-[0.2em] text-[#e77e23]">
+            Who We Are
+          </p>
           
           <h2 className="mb-4 font-heading text-3xl sm:text-4xl lg:text-5xl text-graphite">
             Clever design,{" "}
             <span className="text-[#e77e23]">fox-level precision.</span>
           </h2>
           <p className="mb-4 text-sm sm:text-base text-graphite/80 font-body leading-relaxed">
-            FoxPalette is a boutique design & web studio that blends
+            FoxPalette is a web studio that blends
             thoughtful strategy with playful creativity. We help modern
             brands look sharp, feel premium, and stay memorable in a noisy
             digital world.

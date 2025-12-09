@@ -253,12 +253,92 @@ export default function Contact() {
             </div>
 
             {/* WhatsApp CTA (unchanged) */}
-            {/* ... your existing code ... */}
+           
           </div>
 
           {/* RIGHT SIDE unchanged */}
-          {/* ... your existing code ... */}
+          <div
+            style={{
+              transform: `translateY(${rightTranslate}px)`,
+              transition: "transform 0.12s linear",
+            }}
+          >
+            {/* Info */}
+            <div className="rounded-3xl border border-[#f3e6d9] bg-white/90 p-8 shadow-sm mb-8">
+              <h2 className="text-2xl font-semibold text-graphite mb-6">
+                Contact Information
+              </h2>
+
+              <div className="space-y-5">
+                <div className="flex items-start">
+                  <div className="w-12 h-12 bg-gold rounded-full flex items-center justify-center">
+                    <MapPin size={22} className="text-softWhite" />
+                  </div>
+                  <div className="ml-4">
+                    <p className="font-medium text-graphite">Location</p>
+                    <p className="text-sm text-gray-600">India</p>
+                  </div>
+                </div>
+
+                <div className="flex items-start">
+                  <div className="w-12 h-12 bg-gold rounded-full flex items-center justify-center">
+                    <Mail size={22} className="text-softWhite" />
+                  </div>
+                  <div className="ml-4">
+                    <p className="font-medium text-graphite">Email</p>
+                    <a
+                      href="mailto:hello.foxpalette@gmail.com"
+                      className="text-sm text-graphite hover:text-gold"
+                    >
+                      hello.foxpalette@gmail.com
+                    </a>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            {/* Map */}
+            <div className="bg-gradient-to-br from-green-500 to-green-600 rounded-3xl shadow-lg p-8 text-white">
+              <h3 className="text-2xl font-semibold mb-2">Prefer WhatsApp?</h3>
+              <p className="mb-5 text-sm opacity-90">
+                Get instant replies from our team.
+              </p>
+              <a
+                href="https://wa.link/32t9ex"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center bg-white text-green-600 px-6 py-3 rounded-full hover:bg-green-50 transition-all shadow-md"
+              >
+                <MessageCircle size={22} className="mr-2" />
+                Chat on WhatsApp
+              </a>
+            </div>
+
+            {/* Trust list */}
+            <div className="mt-5 rounded-3xl border border-[#f3e6d9] bg-white/90 p-8 shadow-sm">
+              <h3 className="text-lg font-semibold text-graphite mb-4">
+                Why Choose FoxPalette?
+              </h3>
+              <ul className="space-y-3 text-sm text-gray-700">
+                {[
+                  "Understanding local business needs",
+                  "Transparent pricing",
+                  "Fast delivery & support",
+                  "SEO-first development",
+                ].map((text) => (
+                  <li key={text} className="flex items-center">
+                    <CheckCircle
+                      size={18}
+                      className="text-green-500 mr-3"
+                    />
+                    {text}
+                  </li>
+                ))}
+              </ul>
+            </div>
+          </div>
         </div>
+        
       </div>
     </section>
   );
