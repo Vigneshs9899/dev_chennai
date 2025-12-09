@@ -68,7 +68,7 @@ export default function Navbar() {
               </button>
             ))}
             <a
-              href="https://wa.me/919876543210"
+              href="https://wa.link/32t9ex"
               target="_blank"
               rel="noopener noreferrer"
               className="bg-green-500 text-softWhite px-4 py-2 lg:px-6 lg:py-2 rounded-full hover:bg-green-600 transition-colors duration-200 font-body font-medium text-sm lg:text-base"

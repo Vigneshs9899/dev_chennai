@@ -11,14 +11,14 @@ export default function Footer() {
               Professional web development services for businesses. Affordable, modern, and mobile-friendly websites.
             </p>
             <div className="flex space-x-4 font-body">
-              <a href="#" className="text-graphite hover:text-opacity-90 hover:text-gold transition-colors">
-                <Facebook size={20} />
+              <a href="mailto:hello.foxpalette@gmail.com" className="text-graphite hover:text-opacity-90 hover:text-gold transition-colors">
+                <Mail size={20} />
               </a>
             
-              <a href="#" className="text-graphite hover:text-opacity-90 hover:text-gold transition-colors">
+              <a href="https://www.linkedin.com/company/foxpalette" className="text-graphite hover:text-opacity-90 hover:text-gold transition-colors">
                 <Linkedin size={20} />
               </a>
-              <a href="#" className="text-graphite hover:text-opacity-90 hover:text-gold transition-colors">
+              <a href="https://www.instagram.com/foxpalette_/" className="text-graphite hover:text-opacity-90 hover:text-gold transition-colors">
                 <Instagram size={20} />
               </a>
             </div>
