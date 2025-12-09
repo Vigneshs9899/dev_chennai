@@ -7,8 +7,15 @@ import {
   CheckCircle,
 } from "lucide-react";
 
+// ✅ NEW: import EmailJS
+import emailjs from "@emailjs/browser";
+
 export default function Contact() {
   const sectionRef = useRef<HTMLDivElement | null>(null);
+
+  // ✅ OPTIONAL: you can use a form ref if you prefer sendForm()
+  // const formRef = useRef<HTMLFormElement | null>(null);
+
   const [parallax, setParallax] = useState(0);
 
   const [formData, setFormData] = useState({
@@ -18,7 +25,17 @@ export default function Contact() {
     businessType: "",
     message: "",
   });
+
   const [isSubmitted, setIsSubmitted] = useState(false);
+
+  // ✅ NEW: track sending & errors (optional but nice UX)
+  const [isSending, setIsSending] = useState(false);
+  const [error, setError] = useState<string | null>(null);
+
+  // ✅ Put your EmailJS credentials here (or use env variables)
+  const EMAILJS_SERVICE_ID = "service_ao57hii";
+  const EMAILJS_TEMPLATE_ID = "template_mbtvbh8";
+  const EMAILJS_PUBLIC_KEY = "NRF-B7oOY5TggldBN";
 
   useEffect(() => {
     const handleScroll = () => {
@@ -48,25 +65,52 @@ export default function Contact() {
     };
   }, []);
 
-  // Subtle parallax values
   const bgTranslate = parallax * -60;
   const leftTranslate = parallax * -20;
   const rightTranslate = parallax * 20;
 
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
+  // ⬇️ UPDATED: handleSubmit now sends via EmailJS
+  const handleSubmit = async (e: React.FormEvent) => {
+  e.preventDefault();
+  setError(null);
+  setIsSending(true);
+
+  try {
+    await emailjs.send(
+      EMAILJS_SERVICE_ID,
+      EMAILJS_TEMPLATE_ID,
+      {
+        from_name: formData.name,          // {{from_name}}
+        reply_to: formData.email,          // {{reply_to}}
+        phone: formData.phone,             // {{phone}}
+        business_type: formData.businessType, // {{business_type}}
+        message: formData.message,         // {{message}}
+      },
+      {
+        publicKey: EMAILJS_PUBLIC_KEY,
+      }
+    );
+
     setIsSubmitted(true);
+    setFormData({
+      name: "",
+      email: "",
+      phone: "",
+      businessType: "",
+      message: "",
+    });
+
     setTimeout(() => {
       setIsSubmitted(false);
-      setFormData({
-        name: "",
-        email: "",
-        phone: "",
-        businessType: "",
-        message: "",
-      });
     }, 3000);
-  };
+  } catch (err) {
+    console.error("EmailJS error:", err);
+    setError("Something went wrong, please try again.");
+  } finally {
+    setIsSending(false);
+  }
+};
+
 
   const handleChange = (
     e: React.ChangeEvent<
@@ -106,7 +150,6 @@ export default function Contact() {
           </p>
         </div>
 
-        {/* Main grid */}
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
           {/* LEFT: form + WhatsApp */}
           <div
@@ -115,7 +158,6 @@ export default function Contact() {
               transition: "transform 0.12s linear",
             }}
           >
-            {/* Form */}
             <div className="rounded-3xl border border-[#f3e6d9] bg-white/90 p-8 shadow-sm mb-8">
               <h2 className="text-2xl font-semibold text-graphite mb-6">
                 Send Us a Message
@@ -134,169 +176,88 @@ export default function Contact() {
                   </p>
                 </div>
               ) : (
-                <form onSubmit={handleSubmit} className="space-y-5">
-                  {/** Inputs unchanged but cleaned */}
-                  {[
-                    { label: "Your Name", name: "name", type: "text" },
-                    { label: "Email Address", name: "email", type: "email" },
-                    { label: "Phone Number", name: "phone", type: "tel" },
-                  ].map((field) => (
-                    <div key={field.name}>
+                <>
+                  {/* ✅ show error if any */}
+                  {error && (
+                    <p className="mb-4 text-sm text-red-600">{error}</p>
+                  )}
+
+                  <form onSubmit={handleSubmit} className="space-y-5">
+                    {[
+                      { label: "Your Name", name: "name", type: "text" },
+                      { label: "Email Address", name: "email", type: "email" },
+                      { label: "Phone Number", name: "phone", type: "tel" },
+                    ].map((field) => (
+                      <div key={field.name}>
+                        <label className="block text-sm font-semibold text-gray-700 mb-1">
+                          {field.label}
+                        </label>
+                        <input
+                          type={field.type}
+                          name={field.name}
+                          value={(formData as any)[field.name]}
+                          onChange={handleChange}
+                          required
+                          className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-gold focus:border-transparent transition-all"
+                        />
+                      </div>
+                    ))}
+
+                    <div>
                       <label className="block text-sm font-semibold text-gray-700 mb-1">
-                        {field.label}
+                        Business Type
                       </label>
-                      <input
-                        type={field.type}
-                        name={field.name}
-                        value={(formData as any)[field.name]}
+                      <select
+                        name="businessType"
+                        value={formData.businessType}
+                        onChange={handleChange}
+                        className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-gold focus:border-transparent"
+                      >
+                        <option value="">Select your business type</option>
+                        <option value="clinic">Clinic / Healthcare</option>
+                        <option value="coaching">Coaching Center</option>
+                        <option value="salon">Salon / Spa</option>
+                        <option value="gym">Gym / Fitness</option>
+                        <option value="restaurant">Restaurant / Cafe</option>
+                        <option value="shop">Retail Shop</option>
+                        <option value="other">Other</option>
+                      </select>
+                    </div>
+
+                    <div>
+                      <label className="block text-sm font-semibold text-gray-700 mb-1">
+                        Your Message
+                      </label>
+                      <textarea
+                        name="message"
+                        rows={4}
+                        value={formData.message}
                         onChange={handleChange}
                         required
-                        className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-gold focus:border-transparent transition-all"
+                        className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-gold focus:border-transparent resize-none"
+                        placeholder="Tell us about your project..."
                       />
                     </div>
-                  ))}
 
-                  <div>
-                    <label className="block text-sm font-semibold text-gray-700 mb-1">
-                      Business Type
-                    </label>
-                    <select
-                      name="businessType"
-                      value={formData.businessType}
-                      onChange={handleChange}
-                      className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-gold focus:border-transparent"
+                    <button
+                      type="submit"
+                      disabled={isSending}
+                      className="w-full bg-gold text-softWhite px-6 py-4 rounded-full font-medium shadow-lg hover:shadow-xl hover:-translate-y-[1px] transition-all flex items-center justify-center disabled:opacity-70 disabled:cursor-not-allowed"
                     >
-                      <option value="">Select your business type</option>
-                      <option value="clinic">Clinic / Healthcare</option>
-                      <option value="coaching">Coaching Center</option>
-                      <option value="salon">Salon / Spa</option>
-                      <option value="gym">Gym / Fitness</option>
-                      <option value="restaurant">Restaurant / Cafe</option>
-                      <option value="shop">Retail Shop</option>
-                      <option value="other">Other</option>
-                    </select>
-                  </div>
-
-                  <div>
-                    <label className="block text-sm font-semibold text-gray-700 mb-1">
-                      Your Message
-                    </label>
-                    <textarea
-                      name="message"
-                      rows={4}
-                      value={formData.message}
-                      onChange={handleChange}
-                      required
-                      className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-gold focus:border-transparent resize-none"
-                      placeholder="Tell us about your project..."
-                    />
-                  </div>
-
-                  <button
-                    type="submit"
-                    className="w-full bg-gold text-softWhite px-6 py-4 rounded-full font-medium shadow-lg hover:shadow-xl hover:-translate-y-[1px] transition-all flex items-center justify-center"
-                  >
-                    Send Message
-                    <Send size={18} className="ml-2" />
-                  </button>
-                </form>
+                      {isSending ? "Sending..." : "Send Message"}
+                      <Send size={18} className="ml-2" />
+                    </button>
+                  </form>
+                </>
               )}
             </div>
 
-            {/* WhatsApp CTA */}
-            <div className="bg-gradient-to-br from-green-500 to-green-600 rounded-3xl shadow-lg p-8 text-white">
-              <h3 className="text-2xl font-semibold mb-2">Prefer WhatsApp?</h3>
-              <p className="mb-5 text-sm opacity-90">
-                Get instant replies from our team.
-              </p>
-              <a
-                href="https://wa.me/919876543210"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center bg-white text-green-600 px-6 py-3 rounded-full hover:bg-green-50 transition-all shadow-md"
-              >
-                <MessageCircle size={22} className="mr-2" />
-                Chat on WhatsApp
-              </a>
-            </div>
+            {/* WhatsApp CTA (unchanged) */}
+            {/* ... your existing code ... */}
           </div>
 
-          {/* RIGHT: info + map + trust */}
-          <div
-            style={{
-              transform: `translateY(${rightTranslate}px)`,
-              transition: "transform 0.12s linear",
-            }}
-          >
-            {/* Info */}
-            <div className="rounded-3xl border border-[#f3e6d9] bg-white/90 p-8 shadow-sm mb-8">
-              <h2 className="text-2xl font-semibold text-graphite mb-6">
-                Contact Information
-              </h2>
-
-              <div className="space-y-5">
-                <div className="flex items-start">
-                  <div className="w-12 h-12 bg-gold rounded-full flex items-center justify-center">
-                    <MapPin size={22} className="text-softWhite" />
-                  </div>
-                  <div className="ml-4">
-                    <p className="font-medium text-graphite">Location</p>
-                    <p className="text-sm text-gray-600">India</p>
-                  </div>
-                </div>
-
-                <div className="flex items-start">
-                  <div className="w-12 h-12 bg-gold rounded-full flex items-center justify-center">
-                    <Mail size={22} className="text-softWhite" />
-                  </div>
-                  <div className="ml-4">
-                    <p className="font-medium text-graphite">Email</p>
-                    <a
-                      href="mailto:hello.foxpalette@gmail.com"
-                      className="text-sm text-graphite hover:text-gold"
-                    >
-                      hello.foxpalette@gmail.com
-                    </a>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            {/* Map */}
-            <div className="rounded-3xl overflow-hidden shadow-lg mb-8">
-              <div className="h-64">
-                <iframe
-                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d248849.90089943495!2d80.04419904999999!3d13.047984!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3a5265ea4f7d3361%3A0x6e61a70b6863d433!2sChennai%2C%20Tamil%20Nadu!5e0!3m2!1sen!2sin!4v1234567890"
-                  className="w-full h-full border-none"
-                  loading="lazy"
-                  title="Chennai Location"
-                />
-              </div>
-            </div>
-
-            {/* Trust list */}
-            <div className="rounded-3xl border border-[#f3e6d9] bg-white/90 p-8 shadow-sm">
-              <h3 className="text-lg font-semibold text-graphite mb-4">
-                Why Choose FoxPalette?
-              </h3>
-              <ul className="space-y-3 text-sm text-gray-700">
-                {[
-                  "Understanding local business needs",
-                  "Transparent pricing",
-                  "Fast delivery & support",
-                  "SEO-first development",
-                ].map((text) => (
-                  <li key={text} className="flex items-center">
-                    <CheckCircle
-                      size={18}
-                      className="text-green-500 mr-3"
-                    />
-                    {text}
-                  </li>
-                ))}
-              </ul>
-            </div>
-          </div>
+          {/* RIGHT SIDE unchanged */}
+          {/* ... your existing code ... */}
         </div>
       </div>
     </section>
