@@ -104,7 +104,7 @@ export default function Home() {
                   <ArrowRight className="ml-2" size={20} />
                 </button>
                 <a
-                  href="https://wa.me/919876543210"
+                  href="https://wa.link/32t9ex"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="bg-green-500 text-white px-8 py-4 rounded-full hover:bg-green-600 transition-all duration-300 font-body text-sm shadow-lg hover:shadow-xl transform hover:-translate-y-1 flex items-center justify-center"
